@@ -42,11 +42,11 @@ export default function ConfiguratorLayout() {
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full w-full ">
       {/* Main Content */}
-      <div className="flex flex-1 overflow-hidden bg-gray-200 relative">
+      <div className="flex w-full md:flex-row border-black flex-col overflow-hidden bg-gray-200 relative">
         {/* 3D Model Viewer - Now takes full width */}
-        <div className="w-full h-full overflow-auto">
+        <div className="md:w-3/4 w-full h-full overflow-auto">
           <ModelViewer />
         </div>
 
@@ -78,7 +78,7 @@ export default function ConfiguratorLayout() {
         )}
 
         {/* Right - Form */}
-        <div className="w-full md:w-1/5 border-l overflow-auto bg-white absolute top-0 right-0 bottom-0">
+        <div className="md:w-1/4 w-full border-l overflow-auto bg-white ">
           <QuoteForm />
         </div>
       </div>

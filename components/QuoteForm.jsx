@@ -59,7 +59,7 @@ export default function QuoteForm() {
   return (
     <div className="p-3 bg-white">
       <div className="mb-4 flex justify-end">
-        <img src="/logo.png" alt="TRACK TEC" className="h-14" />
+        <img src="/logo.png" alt="TRACK TEC" className=" w-full h-full" />
       </div>
 
       <div className="mb-4">
@@ -239,7 +239,7 @@ export default function QuoteForm() {
 
           <Button
             type="submit"
-            className="w-full bg-orange-600 hover:bg-orange-700 text-white mt-2 font-bold text-sm py-1"
+            className="w-full bg-[#df9f22] hover:bg-orange-700 text-white mt-2 font-bold text-sm py-1"
           >
             Submit
           </Button>

@@ -124,7 +124,7 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
           className="absolute top-0 left-full w-80 h-full bg-white shadow-lg z-50 overflow-hidden "
         >
           <div className="flex  flex-col h-full">
-            <div className="flex items-center justify-between p-4 bg-black text-white">
+            <div className="flex items-center justify-between p-4 bg-[#df9f22] text-white">
               <h2 className="font-semibold text-lg">
                 {getCategoryTitle(category)}
               </h2>
@@ -132,7 +132,7 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
                 variant="ghost"
                 size="icon"
                 onClick={onClose}
-                className="text-white hover:bg-gray-800 transition-colors duration-200"
+                className="text-white hover:bg-[#df9f22] transition-colors duration-200"
               >
                 <X className="h-5 w-5" />
               </Button>
@@ -173,8 +173,8 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
                             {option.name}
                           </div>
                           {selectedOptions[category] === option.id ? (
-                            <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-white flex items-center justify-center border-2 border-blue-600 shadow-md">
-                              <Check className="h-5 w-5 text-blue-600" />
+                            <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-white flex items-center justify-center border-2 border-[#df9f22] shadow-md">
+                              <Check className="h-5 w-5 text-[#df9f22]" />
                             </div>
                           ) : (
                             <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black bg-opacity-50 flex items-center justify-center">
