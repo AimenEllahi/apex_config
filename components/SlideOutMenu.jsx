@@ -101,24 +101,6 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
     }
   }, [category]);
 
-  useEffect(() => {
-    // Add click outside listener
-    function handleClickOutside(event) {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target) &&
-        isOpen
-      ) {
-        onClose();
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen, onClose]);
-
   if (!category) return null;
 
   const options = categoryOptions[category] || [];
