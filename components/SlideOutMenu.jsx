@@ -33,54 +33,63 @@ const categoryOptions = {
       name: '13" - C-BLOCK',
       image: "/size/13in_C-Block.png",
       price: "$899.00",
+      type: "c-block",
     },
     {
       id: "13in-x-terrain",
       name: '13" - X-TERRAIN',
       image: "/size/13in_X-Terrain.png",
       price: "$949.00",
+      type: "x-terrain",
     },
     {
       id: "13in-zig-zag",
       name: '13" - ZIG-ZAG',
       image: "/size/13in_Zig-Zag.png",
       price: "$979.00",
+      type: "zig-zag",
     },
     {
       id: "16in-c-block",
       name: '16" - C-BLOCK',
       image: "/size/16in_C-Block.png",
       price: "$1,099.00",
+      type: "c-block",
     },
     {
       id: "16in-x-terrain",
       name: '16" - X-TERRAIN',
       image: "/size/16in_X-Terrain.png",
       price: "$1,149.00",
+      type: "x-terrain",
     },
     {
       id: "16in-zig-zag",
       name: '16" - ZIG-ZAG',
       image: "/size/16in_Zig-Zag.png",
       price: "$1,179.00",
+      type: "zig-zag",
     },
     {
       id: "18in-c-block",
       name: '18" - C-BLOCK',
       image: "/size/18in_C-Block.png",
       price: "$1,299.00",
+      type: "c-block",
     },
     {
       id: "18in-x-terrain",
       name: '18" - X-TERRAIN',
       image: "/size/18in_X-Terrain.png",
       price: "$1,349.00",
+      type: "x-terrain",
     },
     {
       id: "18in-zig-zag",
       name: '18" - ZIG-ZAG',
       image: "/size/18in_Zig-Zag.png",
       price: "$1,379.00",
+      type: "zig-zag",
     },
   ],
 };
@@ -88,7 +97,7 @@ const categoryOptions = {
 export default function SlideOutMenu({ isOpen, onClose, category }) {
   const [selectedOptions, setSelectedOptions] = useState({
     Type: "c-block",
-    Size: "13-inch",
+    Size: "13in-c-block",
   });
 
   const menuRef = useRef(null);
@@ -103,13 +112,27 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
 
   if (!category) return null;
 
-  const options = categoryOptions[category] || [];
-
+  let options = categoryOptions[category] || [];
+  if (category === "Size") {
+    const selectedType = selectedOptions.Type;
+    options = options.filter((opt) => opt.type === selectedType);
+  }
   const selectOption = (optionId) => {
-    setSelectedOptions({
+    const updatedSelection = {
       ...selectedOptions,
       [category]: optionId,
-    });
+    };
+
+    if (category === "Type") {
+      const matchingSizes = categoryOptions["Size"].filter(
+        (size) => size.type === optionId
+      );
+      if (matchingSizes.length > 0) {
+        updatedSelection["Size"] = matchingSizes[0].id;
+      }
+    }
+
+    setSelectedOptions(updatedSelection);
   };
 
   return (
@@ -169,9 +192,7 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
                             alt={option.name}
                             className="w-full h-40 object-cover transition-transform duration-300 hover:scale-105"
                           />
-                          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-2">
-                            {option.name}
-                          </div>
+
                           {selectedOptions[category] === option.id ? (
                             <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-white flex items-center justify-center border-2 border-[#df9f22] shadow-md">
                               <Check className="h-5 w-5 text-[#df9f22]" />
