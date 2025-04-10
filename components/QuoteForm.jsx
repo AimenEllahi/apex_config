@@ -50,10 +50,50 @@ export default function QuoteForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you would typically send the data to your backend
+
+    const jotformFormId = "YOUR_FORM_ID"; // replace with your actual form ID
+    const apiKey = "YOUR_API_KEY"; // replace with your actual API key
+
+    // Map your form data to Jotform field IDs
+    const payload = {
+      "submission[1]": formData.firstName,
+      "submission[2]": formData.lastName,
+      "submission[3]": formData.email,
+      "submission[4]": formData.phone,
+      "submission[5]": formData.company,
+      "submission[6]": formData.address,
+      "submission[7]": formData.city,
+      "submission[8]": formData.country,
+      "submission[9]": formData.state,
+      "submission[10]": formData.zipCode,
+      "submission[11]": formData.newsletter ? "Yes" : "No",
+    };
+
+    try {
+      const res = await fetch(
+        `https://api.jotform.com/form/${jotformFormId}/submissions?apiKey=${apiKey}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const data = await res.json();
+      console.log("Jotform response:", data);
+      if (data.responseCode === 200) {
+        alert("Form submitted successfully!");
+      } else {
+        alert("Something went wrong submitting to Jotform.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Error submitting the form.");
+    }
   };
 
   return (
