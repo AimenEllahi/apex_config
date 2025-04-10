@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { X, Plus, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import useModelStore from "@/store/useModelStore";
 
 const categoryOptions = {
   Type: [
@@ -94,7 +95,17 @@ const categoryOptions = {
   ],
 };
 
+const modelMapping = {
+  "13in-zig-zag": "A320MM",
+  "16in-zig-zag": "A400MM",
+  "18in-zig-zag": "A450MM",
+  "13in-x-terrain": "B320MM",
+  "16in-x-terrain": "B400MM",
+  "18in-x-terrain": "B450MM",
+};
+
 export default function SlideOutMenu({ isOpen, onClose, category }) {
+  const { setSelectedModel } = useModelStore();
   const [selectedOptions, setSelectedOptions] = useState({
     Type: "c-block",
     Size: "13in-c-block",
@@ -117,6 +128,7 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
     const selectedType = selectedOptions.Type;
     options = options.filter((opt) => opt.type === selectedType);
   }
+
   const selectOption = (optionId) => {
     const updatedSelection = {
       ...selectedOptions,
@@ -128,13 +140,22 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
         (size) => size.type === optionId
       );
       if (matchingSizes.length > 0) {
-        updatedSelection["Size"] = matchingSizes[0].id;
+        const defaultSize = matchingSizes[0].id;
+        updatedSelection["Size"] = defaultSize;
+        if (modelMapping[defaultSize]) {
+          setSelectedModel(modelMapping[defaultSize]);
+        }
+      }
+    }
+
+    if (category === "Size") {
+      if (modelMapping[optionId]) {
+        setSelectedModel(modelMapping[optionId]);
       }
     }
 
     setSelectedOptions(updatedSelection);
   };
-
   return (
     <AnimatePresence>
       {isOpen && (

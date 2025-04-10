@@ -1,7 +1,7 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment, Stage } from "@react-three/drei";
-import Model from "./Model";
+import Model from "./3d/Model";
 
 export default function ModelViewer() {
   return (
@@ -15,8 +15,8 @@ export default function ModelViewer() {
           minZoom={0.5}
           maxPolarAngle={Math.PI / 2}
         />
-        {/* Stage wraps the model and sets up lighting and contact shadows */}
-        <Stage adjustCamera={1}>
+
+        <Stage adjustCamera={false}>
           <Model />
         </Stage>
       </Canvas>
