@@ -102,6 +102,9 @@ const modelMapping = {
   "13in-x-terrain": "B320MM",
   "16in-x-terrain": "B400MM",
   "18in-x-terrain": "B450MM",
+  "13in-c-block": "C320MM",
+  "16in-c-block": "C400MM",
+  "18in-c-block": "C450MM",
 };
 
 export default function SlideOutMenu({ isOpen, onClose, category }) {

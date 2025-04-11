@@ -53,8 +53,8 @@ export default function QuoteForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const jotformFormId = "YOUR_FORM_ID"; // replace with your actual form ID
-    const apiKey = "YOUR_API_KEY"; // replace with your actual API key
+    const jotformFormId = "YOUR_FORM_ID";
+    const apiKey = "41ad20959213219038a11b4fe20996d2";
 
     // Map your form data to Jotform field IDs
     const payload = {

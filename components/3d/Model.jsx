@@ -12,6 +12,9 @@ import A450MM from "./A450MM";
 import B320MM from "./B320MM";
 import B400MM from "./B400MM";
 import B450MM from "./B450MM";
+import C320MM from "./C320MM";
+import C400MM from "./C400MM";
+import C450MM from "./C450MM";
 import useModelStore from "@/store/useModelStore";
 
 export default function Model(props) {
@@ -31,6 +34,12 @@ export default function Model(props) {
         return <B400MM />;
       case "B450MM":
         return <B450MM />;
+      case "C320MM":
+        return <C320MM />;
+      case "C400MM":
+        return <C400MM />;
+      case "C450MM":
+        return <C450MM />;
       default:
         return null;
     }
