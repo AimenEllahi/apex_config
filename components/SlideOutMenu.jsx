@@ -110,7 +110,7 @@ const modelMapping = {
 export default function SlideOutMenu({ isOpen, onClose, category }) {
   const { setSelectedModel } = useModelStore();
   const [selectedOptions, setSelectedOptions] = useState({
-    Type: "c-block",
+    Tread: "c-block",
     Size: "13in-c-block",
   });
 
@@ -138,7 +138,7 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
       [category]: optionId,
     };
 
-    if (category === "Type") {
+    if (category === "Tread") {
       const matchingSizes = categoryOptions["Size"].filter(
         (size) => size.type === optionId
       );
