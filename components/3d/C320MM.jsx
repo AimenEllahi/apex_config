@@ -7,8 +7,8 @@ export default function Model(props) {
   // Update material color to black
   if (materials.wire_225143087) {
     materials.wire_225143087.color.set(0x000000); // Set color to black
-    materials.wire_225143087.roughness = 1; // Set roughness to 0.5
-    materials.wire_225143087.metalness = 0.5; // Set metalness to 0.5
+    materials.wire_225143087.roughness = 0.9; // Set roughness to 0.5
+    materials.wire_225143087.metalness = 0.7; // Set metalness to 0.5
   }
 
   return (

@@ -11,6 +11,10 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF("/A320MM-transformed.glb");
   //console that this model is rendered
   console.log("A320MM model is rendered");
+  if (materials.R_ubber_gray.rubber) {
+    materials.R_ubber_gray.roughness = 0.9; // Set roughness to 0.5
+    materials.R_ubber_gray.metalness = 0.7; // Set metalness to 0.5
+  }
   return (
     <group
       scale={[3, 3, 2.2 * 1.2]}

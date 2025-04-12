@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import useModelStore from "@/store/useModelStore";
 
 const categoryOptions = {
-  Type: [
+  Tread: [
     {
       id: "c-block",
       name: "C-BLOCK",
@@ -168,10 +168,10 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
           animate={{ x: 0 }}
           exit={{ x: "-100%" }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="absolute top-0 left-full w-80 h-full bg-white shadow-lg z-50 overflow-hidden "
+          className="absolute top-0 left-3/4 w-60  bg-white shadow-lg z-50 overflow-hidden "
         >
-          <div className="flex  flex-col h-full">
-            <div className="flex items-center justify-between p-4 bg-[#df9f22] text-white">
+          <div className="flex  flex-col h-[85vh] ">
+            <div className="flex items-center justify-between p-4 bg-[#ef4d28] text-white">
               <h2 className="font-semibold text-lg">
                 {getCategoryTitle(category)}
               </h2>
@@ -179,7 +179,7 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
                 variant="ghost"
                 size="icon"
                 onClick={onClose}
-                className="text-white hover:bg-[#df9f22] transition-colors duration-200"
+                className="text-white hover:bg-[#ef4d28] transition-colors duration-200"
               >
                 <X className="h-5 w-5" />
               </Button>
@@ -218,8 +218,8 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
                           />
 
                           {selectedOptions[category] === option.id ? (
-                            <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-white flex items-center justify-center border-2 border-[#df9f22] shadow-md">
-                              <Check className="h-5 w-5 text-[#df9f22]" />
+                            <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-white flex items-center justify-center border-2 border-[#ef4d28] shadow-md">
+                              <Check className="h-5 w-5 text-[#ef4d28]" />
                             </div>
                           ) : (
                             <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black bg-opacity-50 flex items-center justify-center">

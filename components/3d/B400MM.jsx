@@ -11,6 +11,11 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF("/B400MM-transformed.glb");
   //console that this model is rendered
   console.log("B400MM model is rendered");
+  if (materials.rubber) {
+    materials.rubber.roughness = 0.9; // Set roughness to 0.5
+    materials.rubber.metalness = 0.7; // Set metalness to 0.5
+  }
+
   return (
     <group
       scale={[3, 3, 2.2 * 1.2]}
