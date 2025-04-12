@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 
 const categories = [
-  { id: "Type", name: "Type Options" },
+  { id: "Type", name: "Tread Options" },
   { id: "Size", name: "Size Options" },
 ];
 

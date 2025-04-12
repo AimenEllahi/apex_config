@@ -13,18 +13,18 @@ export default function Model(props) {
   console.log("A400MM model is rendered");
   return (
     <group
-      scale={[3, 3, 2.2]}
+      scale={[3, 3, 2.2 * 1.2]}
       rotation={[Math.PI / 2, Math.PI, 0]}
       {...props}
       dispose={null}
     >
       <mesh
-        position={[12, 0, 30]}
+        position={[12, 0, 28]}
         geometry={nodes.Box134.geometry}
         material={materials.R_ubber_gray}
       />
       <mesh
-        position={[12, 0, -30]}
+        position={[12, 0, -28]}
         geometry={nodes.Box134.geometry}
         material={materials.R_ubber_gray}
       />

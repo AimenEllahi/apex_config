@@ -6,23 +6,24 @@ export default function Model(props) {
 
   // Update material color to black
   if (materials.wire_225143087) {
-    materials.wire_225143087.color.set(0x292a2b); // Set color to black
+    materials.wire_225143087.color.set(0x000000); // Set color to black
+    materials.wire_225143087.roughness = 1; // Set roughness to 0.5
+    materials.wire_225143087.metalness = 0.5; // Set metalness to 0.5
   }
-
   return (
     <group
-      scale={[5.2, 4, 3.6]}
+      scale={[5.2, 4, 3.6 * 1.2]}
       rotation={[Math.PI / 2, Math.PI, 0]}
       {...props}
       dispose={null}
     >
       <mesh
-        position={[-12, 1, -8]}
+        position={[-12, 1, -10]}
         geometry={nodes.Box072.geometry}
         material={materials.wire_225143087}
       />
       <mesh
-        position={[-12, 1, -47]}
+        position={[-12, 1, -45]}
         geometry={nodes.Box072.geometry}
         material={materials.wire_225143087}
       />

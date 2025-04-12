@@ -7,8 +7,8 @@ export default function ModelViewer() {
   return (
     <div className="w-full h-full bg-gradient-to-b from-gray-300 to-gray-400">
       <Canvas shadows>
-        <ambientLight intensity={5.5} />
-        <Environment preset="warehouse" />
+        <ambientLight intensity={1} />
+
         <OrbitControls
           zoomSpeed={0.5}
           maxZoom={1}
@@ -16,7 +16,7 @@ export default function ModelViewer() {
           maxPolarAngle={Math.PI / 2}
         />
 
-        <Stage adjustCamera={false}>
+        <Stage environment={"studio"} adjustCamera={false}>
           <Model />
         </Stage>
       </Canvas>

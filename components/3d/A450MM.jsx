@@ -15,16 +15,16 @@ export default function Model(props) {
     <group
       {...props}
       dispose={null}
-      scale={[3, 3, 2.2]}
+      scale={[3, 3, 2.2 * 1.2]}
       rotation={[Math.PI / 2, Math.PI, 0]}
     >
       <mesh
-        position={[12, 0, 30]}
+        position={[12, 0, 29]}
         geometry={nodes.Box137.geometry}
         material={materials.R_ubber_gray}
       />
       <mesh
-        position={[12, 0, -30]}
+        position={[12, 0, -29]}
         geometry={nodes.Box137.geometry}
         material={materials.R_ubber_gray}
       />

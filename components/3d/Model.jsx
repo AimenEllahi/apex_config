@@ -129,6 +129,7 @@ export default function Model(props) {
       <mesh
         geometry={nodes.Body_Side001.geometry}
         material={materials.Body_Side}
+        texture={nodes.Body_Side001.texture}
       />
       <mesh
         geometry={nodes.Dipper_Stick001.geometry}
