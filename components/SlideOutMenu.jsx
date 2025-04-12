@@ -34,7 +34,7 @@ const categoryOptions = {
       name: '13" - C-BLOCK',
       image: "/size/13in_C-Block.png",
       price: "$899.00",
-      type: "c-block",
+      tread: "c-block",
     },
     {
       id: "13in-x-terrain",
@@ -138,10 +138,14 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
       [category]: optionId,
     };
 
+    console.log(category);
+
     if (category === "Tread") {
+      console.log("Tread selected:", optionId);
       const matchingSizes = categoryOptions["Size"].filter(
         (size) => size.type === optionId
       );
+      console.log("Matching sizes:", matchingSizes);
       if (matchingSizes.length > 0) {
         const defaultSize = matchingSizes[0].id;
         updatedSelection["Size"] = defaultSize;
@@ -159,6 +163,8 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
 
     setSelectedOptions(updatedSelection);
   };
+
+  console.log(selectedOptions);
   return (
     <AnimatePresence>
       {isOpen && (

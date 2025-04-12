@@ -12,8 +12,7 @@ export default function Model(props) {
   //console that this model is rendered
   console.log("A400MM model is rendered");
   if (materials.R_ubber_gray.rubber) {
-    materials.R_ubber_gray.roughness = 0.9; // Set roughness to 0.5
-    materials.R_ubber_gray.metalness = 0.7; // Set metalness to 0.5
+    materials.R_ubber_gray.metalness = 1; // Set metalness to 0.5
   }
   return (
     <group

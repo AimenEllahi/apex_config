@@ -13,8 +13,7 @@ export default function Model(props) {
   console.log("B450MM model is rendered");
   // Update material color to black
   if (materials.rubber) {
-    materials.rubber.roughness = 0.9; // Set roughness to 0.5
-    materials.rubber.metalness = 0.7; // Set metalness to 0.5
+    materials.rubber.metalness = 1; // Set metalness to 0.5
   }
   return (
     <group
