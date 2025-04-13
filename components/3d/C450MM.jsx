@@ -5,7 +5,8 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF("/C320MM-transformed.glb");
   // Update material color to black
   if (materials.wire_225143087) {
-    materials.wire_225143087.color.set("#323336"); // Set color to black
+    materials.wire_225143087.color.set(0x272829); // Set color to black
+
     materials.wire_225143087.metalness = 1; // Set metalness to 0.5
   }
   return (

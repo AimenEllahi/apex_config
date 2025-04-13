@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import useModelStore from "@/store/useModelStore";
 
 const categoryOptions = {
-  Tread: [
+  Type: [
     {
       id: "c-block",
       name: "C-BLOCK",
@@ -34,63 +34,63 @@ const categoryOptions = {
       name: '13" - C-BLOCK',
       image: "/size/13in_C-Block.png",
       price: "$899.00",
-      tread: "c-block",
+      type: "c-block",
     },
     {
       id: "13in-x-terrain",
       name: '13" - X-TERRAIN',
       image: "/size/13in_X-Terrain.png",
       price: "$949.00",
-      tread: "x-terrain",
+      type: "x-terrain",
     },
     {
       id: "13in-zig-zag",
       name: '13" - ZIG-ZAG',
       image: "/size/13in_Zig-Zag.png",
       price: "$979.00",
-      tread: "zig-zag",
+      type: "zig-zag",
     },
     {
       id: "16in-c-block",
       name: '16" - C-BLOCK',
       image: "/size/16in_C-Block.png",
       price: "$1,099.00",
-      tread: "c-block",
+      type: "c-block",
     },
     {
       id: "16in-x-terrain",
       name: '16" - X-TERRAIN',
       image: "/size/16in_X-Terrain.png",
       price: "$1,149.00",
-      tread: "x-terrain",
+      type: "x-terrain",
     },
     {
       id: "16in-zig-zag",
       name: '16" - ZIG-ZAG',
       image: "/size/16in_Zig-Zag.png",
       price: "$1,179.00",
-      tread: "zig-zag",
+      type: "zig-zag",
     },
     {
       id: "18in-c-block",
       name: '18" - C-BLOCK',
       image: "/size/18in_C-Block.png",
       price: "$1,299.00",
-      tread: "c-block",
+      type: "c-block",
     },
     {
       id: "18in-x-terrain",
       name: '18" - X-TERRAIN',
       image: "/size/18in_X-Terrain.png",
       price: "$1,349.00",
-      tread: "x-terrain",
+      type: "x-terrain",
     },
     {
       id: "18in-zig-zag",
       name: '18" - ZIG-ZAG',
       image: "/size/18in_Zig-Zag.png",
       price: "$1,379.00",
-      tread: "zig-zag",
+      type: "zig-zag",
     },
   ],
 };
@@ -110,7 +110,7 @@ const modelMapping = {
 export default function SlideOutMenu({ isOpen, onClose, category }) {
   const { setSelectedModel } = useModelStore();
   const [selectedOptions, setSelectedOptions] = useState({
-    Tread: "c-block",
+    Type: "c-block",
     Size: "13in-c-block",
   });
 
@@ -138,10 +138,7 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
       [category]: optionId,
     };
 
-    console.log(category);
-
-    if (category === "Tread") {
-      console.log("Tread selected:", optionId);
+    if (category === "Type") {
       const matchingSizes = categoryOptions["Size"].filter(
         (size) => size.type === optionId
       );
@@ -179,7 +176,11 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
           <div className="flex  flex-col h-[85vh] ">
             <div className="flex items-center justify-between p-4 bg-[#ef4d28] text-white">
               <h2 className="font-semibold text-lg">
-                {getCategoryTitle(category)}
+                {category === "Type"
+                  ? "Tread"
+                  : category === "Size"
+                    ? "Size"
+                    : ""}
               </h2>
               <Button
                 variant="ghost"
@@ -248,14 +249,4 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
       )}
     </AnimatePresence>
   );
-}
-
-function getCategoryTitle(categoryId) {
-  const titles = {
-    tread: "Tread Options",
-    "track-size": "Track Size",
-    attachments: "Attachments",
-    "window-tint": "Window Tint",
-  };
-  return titles[categoryId] || categoryId;
 }
