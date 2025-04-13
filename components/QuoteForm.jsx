@@ -50,34 +50,39 @@ export default function QuoteForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const jotformFormId = "YOUR_FORM_ID";
+    const jotformFormId = "243606952548061";
     const apiKey = "41ad20959213219038a11b4fe20996d2";
+    const fd = new FormData();
 
-    const payload = {
-      "submission[1]": formData.firstName,
-      "submission[2]": formData.lastName,
-      "submission[3]": formData.email,
-      "submission[4]": formData.phone,
-      "submission[5]": formData.company,
-      "submission[6]": formData.zipCode,
-      "submission[7]": formData.deliveryType,
-      "submission[8]": formData.newsletter ? "Yes" : "No",
-    };
+    // ✅ Correctly targeting subfields of full name
+    fd.append("submission[3][first]", formData.firstName);
+    fd.append("submission[3][last]", formData.lastName);
+
+    // ✅ Email and phone
+    fd.append("submission[4]", formData.email);
+    fd.append("submission[5][full]", formData.phone);
+
+    // ✅ Company Name (you are using email field type for this)
+    fd.append("submission[30]", formData.company);
+
+    // ✅ Billing Address ZIP code only (you can add full fields if needed)
+    fd.append("submission[6][postal]", formData.zipCode);
+
+    // ✅ Delivery Type — checkbox expects array-style key
+    fd.append("submission[13]", formData.deliveryType); // e.g., "Residential"
 
     try {
       const res = await fetch(
         `https://api.jotform.com/form/${jotformFormId}/submissions?apiKey=${apiKey}`,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
+          body: fd,
         }
       );
 
       const data = await res.json();
       console.log("Jotform response:", data);
+
       if (data.responseCode === 200) {
         alert("Form submitted successfully!");
       } else {
