@@ -8,7 +8,7 @@ const categories = [
 
 export default function LeftMenu({ onCategoryClick, activeCategory }) {
   return (
-    <div className="flex flex-col h-fit w-3/4">
+    <div className="flex flex-col h-fit w-60 ">
       <div className="flex-1 p-4">
         {categories.map((category, index) => (
           <div key={category.id} className="relative ">

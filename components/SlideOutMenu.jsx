@@ -171,9 +171,9 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
           animate={{ x: 0 }}
           exit={{ x: "-100%" }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="absolute top-0 left-3/4 w-60  bg-white shadow-lg z-50 overflow-hidden "
+          className="absolute top-34 left-0 w-60  bg-white shadow-lg z-50 overflow-hidden "
         >
-          <div className="flex  flex-col h-[85vh] ">
+          <div className="flex  flex-col h-[75vh] ">
             <div className="flex items-center justify-between p-4 bg-[#ef4d28] text-white">
               <h2 className="font-semibold text-lg">
                 {category === "Type"
