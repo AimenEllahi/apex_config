@@ -9,7 +9,7 @@ export default function ModelViewer() {
   return (
     <div className="w-full h-full bg-gradient-to-b from-gray-300 to-gray-400">
       <Canvas shadows>
-        <ambientLight intensity={1} />
+        <ambientLight intensity={1.2} />
         <directionalLight position={[0, 10, 5]} intensity={1} castShadow />
         <directionalLight position={[-10, 0, 5]} intensity={1} castShadow />
         <OrbitControls

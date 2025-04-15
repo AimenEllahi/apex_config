@@ -236,7 +236,14 @@ export default function SlideOutMenu({ isOpen, onClose, category }) {
                         </div>
                         <div className="flex justify-between items-center">
                           <span className="font-medium">{option.name}</span>
-                          <span className="text-gray-700">{option.price}</span>
+                          {category === "Type" ? (
+                            <span className="text-gray-700">13", 16", 18"</span>
+                          ) : (
+                            <span className="text-gray-700">
+                              {option.name.split(" ")[0]}{" "}
+                              {/* Shows 13", 16", etc. for Size */}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </motion.div>
