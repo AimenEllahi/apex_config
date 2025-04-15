@@ -16,6 +16,7 @@ import C320MM from "./C320MM";
 import C400MM from "./C400MM";
 import C450MM from "./C450MM";
 import useModelStore from "@/store/useModelStore";
+import * as THREE from "three";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/model-transformed.glb");
@@ -119,7 +120,13 @@ export default function Model(props) {
       />
       <mesh
         geometry={nodes.Hood_Cover001.geometry}
-        material={materials.Hood_Cover_Red}
+        material={
+          new THREE.MeshStandardMaterial({
+            color: "#ff0000",
+            metalness: 0.5,
+            roughness: 0.5,
+          })
+        }
       />
       <mesh
         geometry={nodes.Bottom_Body001.geometry}
@@ -128,12 +135,24 @@ export default function Model(props) {
       <mesh geometry={nodes.Black_Box001.geometry} material={materials.Black} />
       <mesh
         geometry={nodes.Body_Side001.geometry}
-        material={materials.Body_Side}
+        material={
+          new THREE.MeshStandardMaterial({
+            color: "#fff",
+            metalness: 0.5,
+            roughness: 0.5,
+          })
+        }
         texture={nodes.Body_Side001.texture}
       />
       <mesh
         geometry={nodes.Dipper_Stick001.geometry}
-        material={materials.Body_Dipper_Stick}
+        material={
+          new THREE.MeshStandardMaterial({
+            color: "#fff",
+            metalness: 0.5,
+            roughness: 0.5,
+          })
+        }
       />
       {/* <mesh
         geometry={nodes.Track_Right_151.geometry}
