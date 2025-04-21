@@ -1,11 +1,13 @@
 {
-	"folders": [
-		{
-			"path": "../.."
-		},
-		{
-			"path": "../../../../Downloads/student-demo"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "../.."
+    },
+    {
+      "path": "../../../../Downloads/student-demo"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "Work"
+  }
 }

@@ -102,9 +102,10 @@ export default function QuoteForm() {
 
       <div className="mb-4">
         <p className="text-xs text-gray-600">
-          Fill out the form below for a custom quote from your local dealer.
-          After your dealer receives your configuration, they will contact you
-          with a total purchase price.
+          Please complete the form below to request your personalized quote.
+          Once submitted, an APEX Parts Specialist will review your
+          configuration and contact you directly with an official quote tailored
+          to your machines precise specifications.
         </p>
       </div>
 
@@ -170,7 +171,7 @@ export default function QuoteForm() {
 
           <div className="space-y-1">
             <Label htmlFor="company" className="text-sm">
-              Company:
+              Make & Model:
             </Label>
             <Input
               id="company"
